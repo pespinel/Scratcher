@@ -6,7 +6,7 @@ CSV_SEPARATOR = ";"
 LOG_NAME = "accounts.log"
 
 # CUSTOM CONFIG
-EMAIL_ACCOUNT = ""
+EMAIL_ACCOUNT = "foo@hotmail.com"
 COUNTRY = "Spain"
 BIRTH_MONTH = "Enero"
 BIRTH_YEAR = "2015"

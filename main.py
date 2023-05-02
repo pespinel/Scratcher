@@ -1,11 +1,6 @@
+from flow import flow
 import utils.constants as constants
 from utils.driver_wrapper import DriverWrapper
-from pageobjects.registration_page import RegistrationPage
-from pageobjects.country_page import CountryPage
-from pageobjects.birth_page import BirthPage
-from pageobjects.gender_page import GenderPage
-from pageobjects.email_page import EmailPage
-from pageobjects.welcome_page import WelcomePage
 
 import csv
 import logging
@@ -27,30 +22,7 @@ if __name__ == "__main__":
             password = row[0].split(constants.CSV_SEPARATOR)[1]
             while not completed:
                 try:
-                    registration_page = RegistrationPage(driver_wrapper.driver)
-                    registration_page.fill_username(username)
-                    registration_page.fill_password(password)
-                    registration_page.nextButton.click()
-
-                    country_page = CountryPage(driver_wrapper.driver)
-                    country_page.pick_country(constants.COUNTRY)
-                    country_page.nextButton.click()
-
-                    birth_page = BirthPage(driver_wrapper.driver)
-                    birth_page.fill_month(constants.BIRTH_MONTH)
-                    birth_page.fill_year(constants.BIRTH_YEAR)
-                    birth_page.nextButton.click()
-
-                    gender_page = GenderPage(driver_wrapper.driver)
-                    gender_page.select.click()
-                    gender_page.nextButton.click()
-
-                    email_page = EmailPage(driver_wrapper.driver)
-                    email_page.fill_email(constants.EMAIL_ACCOUNT)
-                    sleep(0.5)
-                    email_page.finishButton.click()
-
-                    welcome_page = WelcomePage(driver_wrapper.driver)
+                    flow(driver_wrapper.driver, username, password)
                     logging.info("Account created: {}".format(username))
                 except ElementNotVisibleException:
                     driver_wrapper.driver.close()
