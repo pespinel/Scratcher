@@ -6,4 +6,5 @@ class WelcomePage:
 
     def __init__(self, driver):
         self.span = driver.find_element(
-            By.XPATH, "//main/div/form/div/div[2]/div/div[2]/span")
+            By.XPATH, "//main/div/form/div/div[2]/div/div[2]/span"
+        )

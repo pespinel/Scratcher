@@ -8,4 +8,5 @@ class GenderPage:
     def __init__(self, driver):
         self.select = driver.find_element(By.ID, "GenderRadioOptionPreferNot")
         self.nextButton = driver.find_element(
-            By.XPATH, "//main/div/form/div/div[2]/button")
+            By.XPATH, "//main/div/form/div/div[2]/button"
+        )

@@ -12,7 +12,8 @@ class RegistrationPage:
         self.password = driver.find_element(By.ID, "password")
         self.confirmPassword = driver.find_element(By.NAME, "passwordConfirm")
         self.nextButton = driver.find_element(
-            By.XPATH, "//main/div/form/div/div[2]/button")
+            By.XPATH, "//main/div/form/div/div[2]/button"
+        )
 
     def fill_username(self, username):
         self.username.send_keys(username)
