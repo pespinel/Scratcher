@@ -1,0 +1,14 @@
+# Pycharm
+.idea/
+.DS_Store
+
+# VSCode
+.vscode
+
+# Exec files
+*.pyc
+*.log
+*.csv
+
+# Virtual environment
+.venv
