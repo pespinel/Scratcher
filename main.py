@@ -23,8 +23,8 @@ if __name__ == "__main__":
         data = csv.reader(file)
         for row in data:
             completed = False
-            username = row[0].split(";")[0]
-            password = row[0].split(";")[1]
+            username = row[0].split(constants.CSV_SEPARATOR)[0]
+            password = row[0].split(constants.CSV_SEPARATOR)[1]
             while not completed:
                 try:
                     registration_page = RegistrationPage(driver_wrapper.driver)
@@ -37,7 +37,8 @@ if __name__ == "__main__":
                     country_page.nextButton.click()
 
                     birth_page = BirthPage(driver_wrapper.driver)
-                    birth_page.fill_data()
+                    birth_page.fill_month(constants.BIRTH_MONTH)
+                    birth_page.fill_year(constants.BIRTH_YEAR)
                     birth_page.nextButton.click()
 
                     gender_page = GenderPage(driver_wrapper.driver)
