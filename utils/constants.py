@@ -2,7 +2,7 @@
 SCRATCH_ROOT_URL = "https://scratch.mit.edu"
 SCRATCH_REGISTRATION_URL = "{}/join".format(SCRATCH_ROOT_URL)
 CSV_NAME = "accounts.csv"
-CSV_SEPARATOR = ";"
+CSV_DELIMITER = ";"
 LOG_NAME = "accounts.log"
 
 # CUSTOM CONFIG

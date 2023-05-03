@@ -1,34 +1,30 @@
 from flow import flow
+from setup import setup
 import utils.constants as constants
-from utils.driver_wrapper import DriverWrapper
 
 import csv
 import logging
 from selenium.common.exceptions import ElementNotVisibleException
-from time import sleep
 
 logger = logging.basicConfig(filename=constants.LOG_NAME, level=logging.INFO)
 
 
 if __name__ == "__main__":
-    driver_wrapper = DriverWrapper()
-    driver_wrapper.open(constants.SCRATCH_REGISTRATION_URL)
+    driver_wrapper = setup()
 
     with open(constants.CSV_NAME) as file:
         data = csv.reader(file)
         for row in data:
             completed = False
-            username = row[0].split(constants.CSV_SEPARATOR)[0]
-            password = row[0].split(constants.CSV_SEPARATOR)[1]
+            username, password = row[0].split(constants.CSV_DELIMITER)
             while not completed:
                 try:
                     flow(driver_wrapper.driver, username, password)
                     logging.info("Account created: {}".format(username))
                 except ElementNotVisibleException:
-                    driver_wrapper.driver.close()
-                    driver_wrapper = DriverWrapper()
-                    driver_wrapper.open(constants.SCRATCH_REGISTRATION_URL)
                     logger.error("Error creating account: {}".format(username))
+                    driver_wrapper.close()
+                    driver_wrapper = setup()
                 else:
                     completed = True
                 finally:
