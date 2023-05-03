@@ -1,3 +1,4 @@
+from captcha import captcha_solver
 from flow import flow
 from setup import setup
 import utils.constants as constants
@@ -23,6 +24,7 @@ if __name__ == "__main__":
                     logging.info("Account created: {}".format(username))
                 except ElementNotVisibleException:
                     logger.error("Error creating account: {}".format(username))
+                    captcha_solver(driver_wrapper.driver)
                     driver_wrapper.close()
                     driver_wrapper = setup()
                 else:
