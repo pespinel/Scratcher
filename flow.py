@@ -33,4 +33,4 @@ def flow(driver, username, password):
     sleep(0.5)
     email_page.finishButton.click()
 
-    welcome_page = WelcomePage(driver)
+    WelcomePage(driver)
