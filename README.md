@@ -1,4 +1,4 @@
-# ScratchBatchAccountCreator
+# Scratcher
 Simple script to create accounts from scratch.mit.edu using selenium.
 
 ## Usage
@@ -15,4 +15,5 @@ Also change the default CSV delimiter if your csv does not use the default one: 
 ### Running
 
 Place your csv file in the root of this project and run the `main.py` script using python.
+You will need to complete a captcha manually after creating a certaing number of users.
 A log file called `accounts.log` will be created at the root of this project after the execution.
