@@ -4,6 +4,7 @@ SCRATCH_REGISTRATION_URL = "{}/join".format(SCRATCH_ROOT_URL)
 CSV_NAME = "accounts.csv"
 CSV_DELIMITER = ";"
 LOG_NAME = "accounts.log"
+ENCODING = 'utf8'
 
 # CUSTOM CONFIG
 EMAIL_ACCOUNT = "foo@hotmail.com"
